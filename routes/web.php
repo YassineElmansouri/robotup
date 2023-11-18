@@ -21,6 +21,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 Route::get('/afficher_users', [App\Http\Controllers\User_Controller::class,'afficher_users'])->name('afficher_users');
 Route::post('/ajouter_role', [App\Http\Controllers\User_Controller::class,'ajouter_role'])->name('ajouter_role');
 Route::post('/ajouter_profession', [App\Http\Controllers\User_Controller::class,'ajouter_profession'])->name('ajouter_profession');
