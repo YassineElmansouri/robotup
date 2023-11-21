@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+
+
 <div class="container">
+    
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -42,8 +45,14 @@
                             <label for="telephone" class="col-md-4 col-form-label text-md-end">{{ __('Telephone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telephone" type="tel" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone">
-
+                                <div class="input-group">
+                                    <select id="country" name="country" class="form-select form-select-sm select2">
+                                        @foreach ($countries as $country)
+                                            <option value="{{ $country['dialling_code'] }}">{{ $country['name'] }} {{ $country['dialling_code'] }}</option>
+                                        @endforeach
+                                    </select>
+                                    <input id="phone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone">
+                                </div>
                                 @error('telephone')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

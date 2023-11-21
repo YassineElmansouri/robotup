@@ -1,27 +1,8 @@
-@extends('layouts.app')
+@extends('admin.admin')
 
-@section('content')
+@section('contents')
 
-<div class="container mt-4">
-    <div class="row">
-        <div class="col-md-6">
-            <form action="{{ route('ajouter_role') }}" method="post" class="mb-3">
-                @csrf
-                <div class="input-group">
-                    <input type="text" name="label" id="label_role" class="form-control" placeholder="Enter Role" required>
-                    <button class="btn btn-info" type="submit">Add Role</button>
-                </div>
-            </form>
-
-            <form action="{{ route('ajouter_profession') }}" method="post">
-                @csrf
-                <div class="input-group">
-                    <input type="text" name="label" id="label_profession" class="form-control" placeholder="Enter Profession" required>
-                    <button class="btn btn-info" type="submit">Add Profession</button>
-                </div>
-            </form>
-        </div>
-    </div>
+<div class="container mx-5 px-5">
 
     <div class="row mt-4">
         <div class="col-md-12">
@@ -50,14 +31,14 @@
                             @endforeach
                             @if($v->valide == false)
                                 <td>
-                                    <form method="POST" action="{{ route('updatevalide', ['id' => $v->id, 'status' => 'true']) }}">
+                                    <form method="POST" action="{{ route('updatevalide', ['id' => $v->id, 'status' => 'true']) }}" onsubmit="return confirm('Are you sure you want to delete this role?');">
                                         @csrf
                                         <button type="submit" class="btn btn-danger">Pas Validé</button>
                                     </form>
                                 </td>
                             @else
                                 <td>
-                                    <form method="POST" action="{{ route('updatevalide', ['id' => $v->id, 'status' => 'false']) }}">
+                                    <form method="POST" action="{{ route('updatevalide', ['id' => $v->id, 'status' => 'false']) }}" onsubmit="return confirm('Are you sure you want to delete this role?');">
                                         @csrf
                                         <button type="submit" class="btn btn-success">Validé</button>
                                     </form>

@@ -10,6 +10,8 @@ class register_Controller extends Controller
     public function dropdown_content(){
         $roles = Roles::all();
         $professions = Professions::all();
-        return view("auth.register", compact("roles","professions"));
+        $countriesJson = file_get_contents(resource_path('json/countries.json'));
+        $countries = json_decode($countriesJson, true)['countries'];
+        return view("auth.register", compact("roles","professions","countries"));
     }
 }

@@ -9,8 +9,7 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
-    public function show_register(){
-        $yassine = "yassine";
-        return view("auth.register",compact("yassine"));
+    public function non_valide(){
+        return view("non_valide.non_valide");
     }
 }
