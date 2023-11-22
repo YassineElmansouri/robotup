@@ -10,6 +10,10 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
     public function non_valide(){
-        return view("non_valide.non_valide");
+        return view("exceptions.non_valide");
+    }
+
+    public function suspendue(){
+        return view("exceptions.suspendue");
     }
 }

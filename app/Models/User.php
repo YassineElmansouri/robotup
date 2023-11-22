@@ -57,4 +57,8 @@ class User extends Authenticatable
     public function isValide(){
         return $this->valide == true;
     }
+
+    public function isSupendue(){
+        return $this->suspended == false;
+    }
 }

@@ -30,7 +30,7 @@
                         <a href="{{route('edit_role', $v->id)}}" class="btn btn-warning">Update</a>
                     </td>
                     <td>
-                        <form action="{{route('Delete_role', $v->id)}}" method="post" onsubmit="return confirm('Are you sure you want to delete this role?');">
+                        <form action="{{route('Delete_role', $v->id)}}" method="post" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce rôle ?');">
                             @csrf
                             @method("delete")
                             <button type="submit" class="btn btn-danger">Delete</button>

@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('roleID')->default('user');
             $table->boolean("valide")->default(false);
             $table->integer('updated_by')->nullable();
+            $table->integer('validated_by')->nullable();
+            $table->boolean('suspended')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
